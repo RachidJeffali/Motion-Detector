@@ -79,17 +79,12 @@ while True:
 			times.append(datetime.now())
 		break
 
-
-print(status_list)
-print(times)
-
 # On enregistre toutes les données dans une dataframe...
 for i in range(0, len(times),2):
 	df = df.append({"Start":times[i], "End":times[i+1]}, ignore_index = True)
 
 # ... qu'on exporte en format csv
 df.to_csv("Times.csv")
-
 
 video.release()
 cv2.destroyAllWindows
